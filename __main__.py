@@ -1,4 +1,4 @@
-import pygame, time
+import pygame, time,portativnaq_computer as port,random
 
 charon=True
 print(pygame.font.get_fonts())
@@ -12,7 +12,7 @@ schet=pygame.font.SysFont("comicsansms",100,0,0)
 were = pygame.Rect(100,277,50,400)
 were2=pygame.Rect(800,277,50,400)
 qw=pygame.Rect(500,577,40,40)
-speedx=7
+speedx=port.ugol()
 speedy=7
 while 1 == 1:
     time.sleep(1 / 90)
@@ -29,7 +29,7 @@ while 1 == 1:
     # вниз2
     if ask[pygame.K_DOWN] == 1:
         were2.y += 3
-    if ask [32] == 1:
+    if ask [pygame.K_SPACE] == 1:
         charon = True
 
     #обработка событий
@@ -42,10 +42,10 @@ while 1 == 1:
         qw.x += speedx
         qwere=qw.colliderect(were)
         if qwere == 1:
-            speedx=+7
+            speedx=+port.ugol()
         qwere = qw.colliderect(were2)
         if qwere == 1:
-            speedx = -7
+            speedx = -port.ugol()
 
     #движение вниз верх
 
