@@ -18,16 +18,16 @@ while 1 == 1:
     time.sleep(1 / 90)
     ask = pygame.key.get_pressed()
     #верх
-    if ask[119] == 1:
+    if ask[pygame.K_w] == 1:
         were.y -= 3
     #вниз
-    if ask[115] == 1:
+    if ask[pygame.K_s] == 1:
         were.y += 3
     # верх2
-    if ask[273] == 1:
+    if ask[pygame.K_UP] == 1:
         were2.y -= 3
     # вниз2
-    if ask[274] == 1:
+    if ask[pygame.K_DOWN] == 1:
         were2.y += 3
     if ask [32] == 1:
         charon = True
