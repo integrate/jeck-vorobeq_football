@@ -23,12 +23,20 @@ while 1 == 1:
     # вниз
     if ask[pygame.K_s] == 1:
         were.y += 3
+    if ask[pygame.K_a] == 1:
+        were.x -= 3
+    if ask[pygame.K_d] == 1:
+        were.x += 3
     # верх2
     if ask[pygame.K_UP] == 1:
         were2.y -= 3
     # вниз2
     if ask[pygame.K_DOWN] == 1:
         were2.y += 3
+    if ask[pygame.K_LEFT] == 1:
+        were2.x -= 3
+    if ask[pygame.K_RIGHT] == 1:
+        were2.x += 3
     if ask[pygame.K_SPACE] == 1:
         charon = True
 
@@ -40,12 +48,12 @@ while 1 == 1:
         qw.x += speedx
         qwere = qw.colliderect(were)
         if qwere == 1:
-            speedx = 0
-            speedy = 0
-            qw.right+=8
+            speedx = 7
+            qw.left = were.right
         qwere = qw.colliderect(were2)
         if qwere == 1:
             speedx = -7
+            qw.right=were2.left
 
         # движение вниз верх
 
@@ -65,16 +73,18 @@ while 1 == 1:
         qw.centery = 577
         were.centery = 350
         were2.centery = 350
+        were.centerx = 100
+        were2.centerx = 800
         charon = False
 
     # рисуем кадр
     q.fill([0, 0, 0])
     # were+= 1www
-    pygame.draw.rect(q, [255, 255, 255], were, 0)
-    pygame.draw.rect(q, [255, 255, 255], were2, 0)
+    pygame.draw.rect(q, [5, 45,255], were, 0)
+    pygame.draw.rect(q, [255, 58, 0], were2, 0)
     pygame.draw.rect(q, [255, 0, 0], qw, 2)
 
     pygame.draw.circle(q, [255, 255, 255], [qw.centerx, qw.centery], 20)
-    schetr = schet.render(str(qwereschet) + ":" + str(qwereschet2), True, [255, 255, 255])
+    schetr = schet.render(str(qwereschet) + ":" + str(qwereschet2), True, [0, 255, 0])
     q.blit(schetr, [350, 50])
     pygame.display.flip()
