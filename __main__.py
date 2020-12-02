@@ -8,7 +8,7 @@ qwereschet2 = 0
 qwereschet = 0
 pygame.key.set_repeat(10)
 screen = pygame.display.set_mode([1000, SCREENY])
-schet = pygame.font.SysFont("microsoftnewtailue", 100, 0, 0)
+schet = pygame.font.SysFont("consolas", 100, 0, 0)
 were = pygame.Rect(100, 277, 50, 400)
 were2 = pygame.Rect(800, 277, 50, 400)
 qw = pygame.Rect(500, 577, 40, 40)
@@ -49,11 +49,14 @@ while 1 == 1:
         qwere = qw.colliderect(were)
         if qwere == 1:
             speedx = 7
+            port.ugol(qw,were)
             qw.left = were.right
         qwere = qw.colliderect(were2)
         if qwere == 1:
             speedx = -7
+            port.ugol(qw, were2)
             qw.right=were2.left
+
 
         # движение вниз верх
         qw.y += speedy
