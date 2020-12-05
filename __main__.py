@@ -48,13 +48,12 @@ while 1 == 1:
         qw.x += speedx
         qwere = qw.colliderect(were)
         if qwere == 1:
-            speedx = 7
-            port.ugol(qw,were)
+            speedx,speedy=port.ugol(qw,were)
             qw.left = were.right
         qwere = qw.colliderect(were2)
         if qwere == 1:
-            speedx = -7
-            port.ugol(qw, were2)
+            speedx,speedy=port.ugol(qw, were2)
+            speedx=-speedx
             qw.right=were2.left
 
 
@@ -92,10 +91,9 @@ while 1 == 1:
     # were+= 1www
     pygame.draw.rect(screen, [5, 45, 255], were, 0)
     pygame.draw.rect(screen, [255, 58, 0], were2, 0)
-    pygame.draw.rect(screen, [255, 0, 0], qw, 2)
     pygame.draw.line(screen,[255,255,255],[500, 0],[500,700],4)
 
-    pygame.draw.circle(screen, [255, 255, 255], [qw.centerx, qw.centery], 20)
+    pygame.draw.circle(screen, [255, 0, 255], [qw.centerx, qw.centery], 20)
     schetr = schet.render(str(qwereschet) + ":" + str(qwereschet2), True, [0, 255, 0])
     schetwid=schetr.get_width()
     screen.blit(schetr, [500-schetwid/2, 50])
