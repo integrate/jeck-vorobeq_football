@@ -11,6 +11,7 @@ pygame.mixer.music.load("cat soung/francfon.mp3")
 pygame.mixer.music.play()
 pygame.mixer.music.set_volume(0)
 knock=pygame.mixer.Sound("cat soung/knock.wav")
+gol=pygame.mixer.Sound("cat soung/gol.wav")
 screen = pygame.display.set_mode([1000, SCREENY])
 schet = pygame.font.SysFont("consolas", 100, 0, 0)
 were = pygame.Rect(100, 277, 50, 400)
@@ -67,8 +68,12 @@ while 1 == 1:
         qw.y += speedy
         if qw.bottom >= SCREENY:
             speedy = -7
+            knock.play()
         if qw.top <= 0:
             speedy = 7
+            knock.play()
+
+
 
     #непробиваемая линия
     if were.right>=500:
@@ -82,8 +87,10 @@ while 1 == 1:
     if qw.left <= 0 or qw.right >= 1000:
         if qw.left <= 0:
             qwereschet += 1
+            gol.play()
         if qw.right >= 1000:
             qwereschet2 += 1
+            gol.play()
         qw.centerx = 500
         qw.centery = 577
         were.centery = 350
