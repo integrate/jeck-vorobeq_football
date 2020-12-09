@@ -7,6 +7,10 @@ pygame.init()
 qwereschet2 = 0
 qwereschet = 0
 pygame.key.set_repeat(10)
+pygame.mixer.music.load("cat soung/francfon.mp3")
+pygame.mixer.music.play()
+pygame.mixer.music.set_volume(0)
+knock=pygame.mixer.Sound("cat soung/knock.wav")
 screen = pygame.display.set_mode([1000, SCREENY])
 schet = pygame.font.SysFont("consolas", 100, 0, 0)
 were = pygame.Rect(100, 277, 50, 400)
@@ -50,10 +54,12 @@ while 1 == 1:
         if qwere == 1:
             speedx,speedy=port.ugol(qw,were)
             qw.left = were.right
+            knock.play()
         qwere = qw.colliderect(were2)
         if qwere == 1:
             speedx,speedy=port.ugol(qw, were2)
             speedx=-speedx
+            knock.play()
             qw.right=were2.left
 
 
