@@ -7,9 +7,9 @@ pygame.init()
 qwereschet2 = 0
 qwereschet = 0
 pygame.key.set_repeat(10)
-pygame.mixer.music.load("cat soung/francfon.mp3")
+pygame.mixer.music.load("cat soung/did.mp3")
 pygame.mixer.music.play()
-pygame.mixer.music.set_volume(0)
+pygame.mixer.music.set_volume(0.5)
 knock=pygame.mixer.Sound("cat soung/knock.wav")
 gol=pygame.mixer.Sound("cat soung/gol.wav")
 screen = pygame.display.set_mode([1000, SCREENY])
